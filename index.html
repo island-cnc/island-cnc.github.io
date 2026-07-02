@@ -1,161 +1,236 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Island CNC — От интуитивного DIY к инженерной точности</title>
+    <title>ISLAND-CNC | Workshop & Engineering</title>
     <style>
         :root {
-            --bg-color: #121214;
-            --panel-bg: #1a1a1e;
-            --accent-color: #00adb5;
-            --text-main: #eeeeee;
-            --text-muted: #94a3b8;
-            --border-color: #2a2a30;
+            --bg-color: #121212;
+            --panel-bg: #1e1e1e;
+            --accent-color: #ff6b00; /* Инженерный оранжевый */
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --border-color: #333333;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
-            line-height: 1.6;
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
 
+        /* Шапка сайта */
         header {
             background-color: var(--panel-bg);
-            border-bottom: 1px solid var(--border-color);
-            padding: 2rem 1rem;
-            text-align: center;
+            border-bottom: 2px solid var(--accent-color);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .header-container h1 {
+        .logo h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 24px;
             letter-spacing: 2px;
-            color: var(--text-main);
+            color: #ffffff;
         }
 
-        .header-container h1 span {
+        .logo span {
             color: var(--accent-color);
         }
 
-        .tagline {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            margin-top: 0.5rem;
-            font-weight: 300;
+        /* Переключатель языков */
+        .lang-switch {
+            display: flex;
+            gap: 10px;
         }
 
-        main {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
-
-        .intro-section {
-            background-color: var(--panel-bg);
+        .lang-btn {
+            background: transparent;
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2.5rem;
+            color: var(--text-muted);
+            padding: 6px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: all 0.3s ease;
         }
 
-        .intro-section h2 {
-            margin-top: 0;
+        .lang-btn.active, .lang-btn:hover {
+            border-color: var(--accent-color);
             color: var(--accent-color);
+            background-color: rgba(255, 107, 0, 0.1);
         }
 
+        /* Главный контейнер */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Сетка разделов */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
         }
 
         .card {
             background-color: var(--panel-bg);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: transform 0.2s, border-color 0.2s;
+            border-radius: 6px;
+            padding: 25px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
         .card:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             border-color: var(--accent-color);
         }
 
         .card h3 {
             margin-top: 0;
-            color: var(--text-main);
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 0.5rem;
+            color: #ffffff;
+            font-size: 18px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
         }
 
-        .badge {
-            background-color: rgba(0, 173, 181, 0.1);
+        .card h3 i {
             color: var(--accent-color);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 1rem;
+            margin-right: 10px;
         }
 
+        .card p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Подвал */
         footer {
             text-align: center;
-            padding: 3rem 1rem;
+            padding: 40px;
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 12px;
             border-top: 1px solid var(--border-color);
-            margin-top: 4rem;
+            margin-top: 60px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="header-container">
+        <div class="logo">
             <h1>ISLAND<span>-CNC</span></h1>
-            <div class="tagline">От интуитивного DIY к инженерной точности</div>
+        </div>
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+            <button class="lang-btn" onclick="setLanguage('ru')">RU</button>
         </div>
     </header>
 
-    <main>
-        <section class="intro-section">
-            <h2>О проекте</h2>
-            <p>Добро пожаловать. Этот ресурс создавался не просто как галерея готовых ЧПУ-проектов, а как практическое руководство по работе над ошибками. Долгое время в DIY-культуре многое строилось на интуиции, пробах и досадных промахах. С приходом эпохи ИИ появилась возможность глубоко анализировать физику процессов, оптимизировать схемы и находить по-настоящему правильные инженерные решения.</p>
-            <p>Я прошел через классические грабли проектирования, наводок, борьбы с питанием и тонкостей коммутации. Цель этого сайта — разложить сложные процессы по полочкам и уберечь начинающих мастеров от критических ошибок при сборке кастомных систем управления.</p>
-        </section>
-
-        <h2 style="margin-bottom: 1.5rem;">Направления и будущие разборы:</h2>
-        
-        <div class="grid">
-            <div class="card">
-                <span class="badge">HARDWARE & POWER</span>
-                <h3>Электроника и Питание</h3>
-                <p>Разбор архитектуры шкафов управления, фильтрации помех, правильного заземления и подключения частотно-регулируемых приводов (VFD) без разрушительных наводок на логику.</p>
-            </div>
-
-            <div class="card">
-                <span class="badge">SOFTWARE & CNC</span>
-                <h3>Контроллеры и Софт</h3>
-                <p>Нюансы интеграции и тонкой настройки аппаратных решений Planet-CNC (контроллеры, коммутационные платы) для стабильной и предсказуемой работы станка.</p>
-            </div>
-
-            <div class="card">
-                <span class="badge">WORKSHOP LOGISTICS</span>
-                <h3>Мастерская и Среда</h3>
-                <p>Организация рабочего пространства, кастомные стойки, вопросы теплоотвода, вентиляции силовых блоков и эффективного размещения оборудования.</p>
-            </div>
+    <div class="container">
+        <!-- Главное интро -->
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h2 data-en="Custom CNC Engineering & Machinery" data-ru="Проектирование ЧПУ и модернизация станков">Custom CNC Engineering & Machinery</h2>
+            <p style="max-width: 700px; margin: 0 auto; color: var(--text-muted);" 
+               data-en="From manual iron to automated precision. Designing custom control cabinets, tuning professional software, and testing limits in the workshop." 
+               data-ru="От ручного управления к автоматизированной точности. Проектирование систем управления, настройка профессионального софта и суровые тесты в мастерской.">
+               From manual iron to automated precision. Designing custom control cabinets, tuning professional software, and testing limits in the workshop.
+            </p>
         </div>
-    </main>
+
+        <!-- Сетка проектов / деятельности -->
+        <div class="grid">
+            
+            <!-- Карточка 1: Модернизация -->
+            <div class="card">
+                <h3 data-en="⚙️ CNC Retrofitting" data-ru="⚙️ Модернизация станков">⚙️ CNC Retrofitting</h3>
+                <p data-en="Converting factory-built manual milling and turning machines to full CNC control. Giving secondary life to heavy iron with modern automation." 
+                   data-ru="Перевод заводских серийных фрезерных и токарных станков с ручного управления на ЧПУ. Вторая жизнь тяжелого железа в эпоху автоматизации.">
+                   Converting factory-built manual milling and turning machines to full CNC control. Giving secondary life to heavy iron with modern automation.
+                </p>
+            </div>
+
+            <!-- Карточка 2: Проектирование контроллеров -->
+            <div class="card">
+                <h3 data-en="🔌 Controller Design & Assembly" data-ru="🔌 Проектирование и сборка контроллеров">🔌 Controller Design & Assembly</h3>
+                <p data-en="Planning and building control cabinets tailored to specific tasks (heavy mills, routers). Component selection, power layout, and clean wire management." 
+                   data-ru="Планирование и сборка шкафов управления под конкретные задачи (станки, роутеры). Подбор компонентов, расчет питания и чистый монтаж электроники.">
+                   Planning and building control cabinets tailored to specific tasks (heavy mills, routers). Component selection, power layout, and clean wire management.
+                </p>
+            </div>
+
+            <!-- Карточка 3: Настройка софта -->
+            <div class="card">
+                <h3 data-en="💻 Software Tuning & Configuration" data-ru="💻 Настройка и отладка ПО">💻 Software Tuning & Configuration</h3>
+                <p data-en="Fine-tuning and debugging control applications for selected hardware configurations. Core focus on PlanetCNC TNGv2 deployment (legacy experience with Mach4 setups)." 
+                   data-ru="Тонкая настройка и отладка управляющих приложений под выбранную конфигурацию железа. Основной упор на экосистему PlanetCNC TNGv2 (есть большой опыт работы с Mach4).">
+                   Fine-tuning and debugging control applications for selected hardware configurations. Core focus on PlanetCNC TNGv2 deployment (legacy experience with Mach4 setups).
+                </p>
+            </div>
+
+            <!-- Карточка 4: Видео и тесты -->
+            <div class="card">
+                <h3 data-en="📺 Video Log & Test Projects" data-ru="📺 Видеоотчеты и тест-проекты">📺 Video Log & Test Projects</h3>
+                <p data-en="Documenting the process: machine teardowns, cabinet wiring logs, and stress-testing on actual manufacturing projects." 
+                   data-ru="Документирование процесса: переделка железа, сборка электроники и проверка готовых систем на реальных тестовых задачах.">
+                   Documenting the process: machine teardowns, cabinet wiring logs, and stress-testing on actual manufacturing projects.
+                </p>
+            </div>
+
+            <!-- Карточка 5: Деревообработка -->
+            <div class="card">
+                <h3 data-en="🪵 Wood Carving & Bas-reliefs" data-ru="🪵 3D-фрезеровка и барельефы">🪵 Wood Carving & Bas-reliefs</h3>
+                <p data-en="Testing precise 3D toolpaths on wood, producing detailed bas-reliefs, and optimizing cutting parameters for clean wood processing." 
+                   data-ru="Тестирование точных 3D-траекторий по дереву, изготовление сложных барельефов и подбор режимов резания для идеальной чистоты поверхности.">
+                   Testing precise 3D toolpaths on wood, producing detailed bas-reliefs, and optimizing cutting parameters for clean wood processing.
+                </p>
+            </div>
+
+            <!-- Карточка 6: Обзоры инструмента -->
+            <div class="card">
+                <h3 data-en="🛠️ Tool Reviews & Comparison" data-ru="🛠️ Обзоры и сравнение инструмента">🛠️ Tool Reviews & Comparison</h3>
+                <p data-en="Hands-on evaluation and comparison of hand and trim routers (Makita, Bauer, Hercules). Looking at real hardware specs for workshop and CNC spindle alternatives." 
+                   data-ru="Разбор «по косточкам» и сравнение ручных фрезеров (Makita, Bauer, Hercules). Анализ реальной механики для работы руками или интеграции на портал.">
+                   Hands-on evaluation and comparison of hand and trim routers (Makita, Bauer, Hercules). Looking at real hardware specs for workshop and CNC spindle alternatives.
+                </p>
+            </div>
+
+        </div>
+    </div>
 
     <footer>
-        <p>&copy; 2026 Island-CNC. Все права защищены. Разработано совместно с ИИ.</p>
+        <p>&copy; 2026 ISLAND-CNC. All rights reserved. Built for engineering precision.</p>
     </footer>
 
+    <!-- Скрипт переключения языков -->
+    <script>
+        function setLanguage(lang) {
+            // Меняем активный класс на кнопках
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.innerText.toLowerCase() === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Находим все элементы с атрибутами перевода и меняем текст
+            document.querySelectorAll('[data-en]').forEach(el => {
+                if (lang === 'ru') {
+                    el.innerText = el.getAttribute('data-ru');
+                } else {
+                    el.innerText = el.getAttribute('data-en');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
