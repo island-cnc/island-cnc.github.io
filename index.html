@@ -1,1 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Island CNC — От интуитивного DIY к инженерной точности</title>
+    <style>
+        :root {
+            --bg-color: #121214;
+            --panel-bg: #1a1a1e;
+            --accent-color: #00adb5;
+            --text-main: #eeeeee;
+            --text-muted: #94a3b8;
+            --border-color: #2a2a30;
+        }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--panel-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .header-container h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            color: var(--text-main);
+        }
+
+        .header-container h1 span {
+            color: var(--accent-color);
+        }
+
+        .tagline {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+            font-weight: 300;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .intro-section {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .intro-section h2 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-color);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--text-main);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .badge {
+            background-color: rgba(0, 173, 181, 0.1);
+            color: var(--accent-color);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <h1>ISLAND<span>-CNC</span></h1>
+            <div class="tagline">От интуитивного DIY к инженерной точности</div>
+        </div>
+    </header>
+
+    <main>
+        <section class="intro-section">
+            <h2>О проекте</h2>
+            <p>Добро пожаловать. Этот ресурс создавался не просто как галерея готовых ЧПУ-проектов, а как практическое руководство по работе над ошибками. Долгое время в DIY-культуре многое строилось на интуиции, пробах и досадных промахах. С приходом эпохи ИИ появилась возможность глубоко анализировать физику процессов, оптимизировать схемы и находить по-настоящему правильные инженерные решения.</p>
+            <p>Я прошел через классические грабли проектирования, наводок, борьбы с питанием и тонкостей коммутации. Цель этого сайта — разложить сложные процессы по полочкам и уберечь начинающих мастеров от критических ошибок при сборке кастомных систем управления.</p>
+        </section>
+
+        <h2 style="margin-bottom: 1.5rem;">Направления и будущие разборы:</h2>
+        
+        <div class="grid">
+            <div class="card">
+                <span class="badge">HARDWARE & POWER</span>
+                <h3>Электроника и Питание</h3>
+                <p>Разбор архитектуры шкафов управления, фильтрации помех, правильного заземления и подключения частотно-регулируемых приводов (VFD) без разрушительных наводок на логику.</p>
+            </div>
+
+            <div class="card">
+                <span class="badge">SOFTWARE & CNC</span>
+                <h3>Контроллеры и Софт</h3>
+                <p>Нюансы интеграции и тонкой настройки аппаратных решений Planet-CNC (контроллеры, коммутационные платы) для стабильной и предсказуемой работы станка.</p>
+            </div>
+
+            <div class="card">
+                <span class="badge">WORKSHOP LOGISTICS</span>
+                <h3>Мастерская и Среда</h3>
+                <p>Организация рабочего пространства, кастомные стойки, вопросы теплоотвода, вентиляции силовых блоков и эффективного размещения оборудования.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Island-CNC. Все права защищены. Разработано совместно с ИИ.</p>
+    </footer>
+
+</body>
+</html>
